@@ -1,0 +1,19 @@
+.navbar_head {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 60px;
+}
+
+.navbar_ul {
+    display: flex;
+    gap: 40px;
+}
+
+.navbar_li {
+    list-style-type: none;
+}
+
+.link {
+    text-decoration: none;
+    color: #fff;
+}
