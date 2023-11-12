@@ -12,9 +12,6 @@ export const Navbar = () => {
                 <li>
                     <Link to='posts'>Posts</Link>
                 </li>
-                <li>
-                    <Link to='onepost'>OnePost</Link>
-                </li>
             </ul>
         </nav>
     </div>
