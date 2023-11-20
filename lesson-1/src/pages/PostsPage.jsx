@@ -1,27 +1,61 @@
-import { useEffect, useState } from "react"
-import axios from "axios"
-import { Link } from "react-router-dom"
+import { useState, useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { API } from "../api";
 
 
-export const PostsPage = () => {
-  const [posts, setPost] = useState ([])
+const PostsPage = () => {
+  const [posts, setPosts] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     const getPosts = async () => {
-      const resp = await axios.get('https://jsonplaceholder.typicode.com/posts/')
-      setPost(resp.data) 
-    }
-    getPosts()
-  }, [])
-  return ( 
-    <div>PostsPage
+      if (searchParams.get("user") !== null) {
+        const resp = await API.get(`/posts?userId=${searchParams.get("user")}`);
+        setPosts(resp.data);
+      } else {
+        const resp = await API.get("/posts");
+        setPosts(resp.data);
+      }
+    };
+    getPosts();
+  }, []);
+
+  useEffect(() => {
+    const getPosts = async () => {
+      if (searchParams.get("user") !== null) {
+        const resp = await API.get(`/posts?userId=${searchParams.get("user")}`);
+        setPosts(resp.data);
+      } else {
+        const resp = await API.get("/posts");
+        setPosts(resp.data);
+      }
+    };
+    getPosts();
+  }, [searchParams]);
+
+  
+
+  return (
+    <div>
+      PostsPage
+      <div>
+        <span onClick={() => setSearchParams({})}>Все посты</span>
+        {[1, 2, 3, 4, 5].map((userId) => (
+          <span onClick={() => setSearchParams({ user: userId })}>
+            User: {userId}
+          </span>
+        ))}
+      </div>
       <ul>
-        {posts.map(post => (
+        {posts.map((post) => (
           <li key={post.id}>
-            <Link to={`/posts/${post.id}`}>{post.title}</Link>
+            <p>
+              <Link to={`/posts/${post.id}`}>{post.title}</Link>
+            </p>
           </li>
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
+export default PostsPage;
