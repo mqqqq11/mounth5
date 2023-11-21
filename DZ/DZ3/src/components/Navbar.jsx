@@ -2,14 +2,14 @@
 import {NavLink} from 'react-router-dom'
 
 export const Navbar = () => {
-    const navActive = ({isActive}) => (isActive ? 'navActive' : '')
   return (
     <>
         <header>
             <nav>
                 <ul>
-                    <li>
-                        <NavLink className={navActive} to='/'>Posts</NavLink>
+                    <li className='li'>
+                        <NavLink to='/'>Posts</NavLink>
+                        <NavLink to='/user/:id'>ddd</NavLink>
                     </li>
                 </ul>
             </nav>
