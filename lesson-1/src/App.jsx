@@ -10,6 +10,7 @@ import { Layout } from './components/Layout'
 import { LoginPage } from './pages/LoginPage'
 import { PrivatePath } from './components/PrivatePath'
 import { ParentPage } from './pages/ParentPage'
+import CounterPage from './pages/CounterPage'
 
 
 
@@ -29,13 +30,15 @@ function App() {
         <Route path='/' element={<Layout/>}> 
           <Route index element={<MainPage/>}/>
 
-          <Route element={<PrivatePath/>}>
-
-            <Route path='posts/:id' element={<OnePostPage/>}/>
+          <Route path='login' element={<LoginPage/>}>
+            <Route path='private' element={<PrivatePath/>}/>
           </Route>
-        <Route path='parent' element={<ParentPage/>}/>
 
-          <Route path='login' element={<LoginPage/>}/>
+          <Route path='counter' element={<CounterPage/>}/>
+          <Route path='posts' element={<OnePostPage/>}/>
+          <Route path='parent' element={<ParentPage/>}/>
+
+
         </Route>
       </Routes>
     </>
