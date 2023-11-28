@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import {increaseCounter} from "../store/counterReducer"
 // action creator
 
 const CounterPage = () => {
