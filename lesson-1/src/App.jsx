@@ -10,7 +10,7 @@ import { Layout } from './components/Layout'
 import { LoginPage } from './pages/LoginPage'
 import { PrivatePath } from './components/PrivatePath'
 import { ParentPage } from './pages/ParentPage'
-import CounterPage from './pages/CounterPage'
+
 
 
 
@@ -34,7 +34,7 @@ function App() {
             <Route path='private' element={<PrivatePath/>}/>
           </Route>
 
-          <Route path='counter' element={<CounterPage/>}/>
+          {/* <Route path='counter' element={<CounterPage/>}/> */}
           <Route path='posts' element={<OnePostPage/>}/>
           <Route path='parent' element={<ParentPage/>}/>
 

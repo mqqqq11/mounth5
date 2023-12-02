@@ -16,6 +16,6 @@ const initialState = {
   };
   
 
-  const increaseCounter = (payload) => {
-    return {type: 'INCREASE', payload}
-  }
+  // const increaseCounter = (payload) => {
+  //   return {type: 'INCREASE', payload}
+  // }
