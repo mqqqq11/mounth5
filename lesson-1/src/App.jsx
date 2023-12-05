@@ -14,14 +14,14 @@ import { ParentPage } from './pages/ParentPage'
 
 
 
-export const paths = {
-  main: "/",
-  posts: "/posts",
-  post: "/posts/:id",
-  login: "/login",
-  profile: "/my-profile",
-  privatePath: '/private'
-}
+// export const paths = {
+//   main: "/",
+//   posts: "/posts",
+//   post: "/posts/:id",
+//   login: "/login",
+//   profile: "/my-profile",
+//   privatePath: '/private'
+// }
 
 function App() {
   return (
