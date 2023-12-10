@@ -14,7 +14,7 @@ export const fetchEditPosts = createAsyncThunk(
   'edit/fetchEditPosts',
   async({postId, newPost}) => {
     const response = await axios.post(`https://dummyjson.com/posts/${postId}`, {title: newPost})
-    return response.data
+    return response.data;
   }
 )
 
@@ -22,7 +22,6 @@ const EditSlice = createSlice({
   name:'edit',
   initialState: {
     editPostsMassive: [],
-    loading: false,
     error: null
   },
   reducers: {
@@ -31,16 +30,15 @@ const EditSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchPosts.pending, (state) => {
-      state.loading = true
-      state.error = null
-    })
-    .addCase(fetchPosts.fulfilled, (state, action) => {
-      state.editPostsMassive = action.payload
-      state.loading = false
+    builder.addCase(fetchPosts.fulfilled, (state, action) => {
+    state.editPostsMassive = action.payload
     })
     .addCase(fetchPosts.rejected, (state, actions) => {
       state.error = actions.error.message
+    })
+
+    .addCase(fetchEditPosts.fulfilled, (state, action) => {
+      state.editPostsMassive = action.payload
     })
   }
 })

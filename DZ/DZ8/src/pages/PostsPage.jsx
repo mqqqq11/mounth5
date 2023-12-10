@@ -19,6 +19,10 @@ export const PostsPage = () => {
     <>
       <h1>Posts</h1>
 
+      {added.map((addedPost) => (
+          <li key={addedPost.id}>{addedPost.name}</li>
+        ))}
+
       <ul className="posts">
         {posts.postsMassive.posts &&
           posts.postsMassive.posts.map((post) => (
@@ -26,10 +30,6 @@ export const PostsPage = () => {
               {post.title}
             </li>
           ))}
-
-        {added.map((addedPost) => (
-          <li key={addedPost.id}>{addedPost.name}</li>
-        ))}
       </ul>
     </>
   );
